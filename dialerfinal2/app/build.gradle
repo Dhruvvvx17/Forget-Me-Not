@@ -38,7 +38,7 @@ dependencies {
     implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.7@aar') { transitive = true }
     implementation 'com.amazonaws:aws-android-sdk-s3:2.6.+'
     implementation 'com.amazonaws:aws-android-sdk-cognito:2.6.+'
-    implementation project(":AllGames-debug")
+
 
 
     implementation 'com.google.zxing:core:3.2.1'

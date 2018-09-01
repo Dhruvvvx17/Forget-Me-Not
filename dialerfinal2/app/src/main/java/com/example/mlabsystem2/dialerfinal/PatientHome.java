@@ -1,6 +1,7 @@
 package com.example.mlabsystem2.dialerfinal;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -42,6 +43,7 @@ public class PatientHome extends AppCompatActivity implements View.OnClickListen
     ArrayList<String>addresses;
     Handler handler;
     Runnable r;
+    private static int reqcode = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class PatientHome extends AppCompatActivity implements View.OnClickListen
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                Toast.makeText(PatientHome.this, "user is inactive from last 1 minute",Toast.LENGTH_SHORT).show();
+                Toast.makeText(PatientHome.this, "user is inactive from last 8 hours",Toast.LENGTH_SHORT).show();
                // connectedNotify();
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(getApplicationContext())
@@ -67,6 +69,16 @@ public class PatientHome extends AppCompatActivity implements View.OnClickListen
                 //mBuilder.setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
                 mBuilder.setVibrate(new long[] { 1000, 1000});
                 mBuilder.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
+                Intent intent = new Intent(PatientHome.this, AlarmReceiver.class);
+                intent.putExtra("Task", "Use the Phone");
+                intent.putExtra("Description", "NOt using phone since 8 hours");
+                int p = (int) System.currentTimeMillis();
+                intent.putExtra("notificationId", p);
+
+                PendingIntent alarmintent = PendingIntent.getBroadcast(PatientHome.this, reqcode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
+                assert alarm != null;
+                alarm.set(AlarmManager.RTC_WAKEUP, 60000, alarmintent);
 
             }
         };
@@ -211,6 +223,6 @@ public class PatientHome extends AppCompatActivity implements View.OnClickListen
         handler.removeCallbacks(r);
     }
     public void startHandler() {
-        handler.postDelayed(r, 1*60*1000); //for 5 minutes
+        handler.postDelayed(r, 480*60*1000); //for 5 minutes
     }
 }

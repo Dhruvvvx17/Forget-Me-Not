@@ -19,7 +19,11 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 import java.util.ArrayList;
@@ -31,14 +35,16 @@ import java.util.TimerTask;
 
 public class GPS_Service extends Service {
 
+    private static final String TAG = "MEEEEE";
     FirebaseFirestore db;
     String uid;
     private LocationListener listener;
     private LocationManager locationManager;
     private static final int NOTIFICATION_ID = 101;
-    public Double lat=0.0, lng=0.0;
-    int count=0;
-
+    public static ArrayList<String> emNumbers = new ArrayList<>();
+    public Double lat = 0.0, lng = 0.0;
+    int count = 0;
+    String smsTo;
 
 //    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS = 1;
 
@@ -53,7 +59,7 @@ public class GPS_Service extends Service {
     public void onCreate() {
         SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
         uid = prefs.getString("uid", "");
-        final Location location=new Location(LocationManager.GPS_PROVIDER);
+        final Location location = new Location(LocationManager.GPS_PROVIDER);
         location.setLatitude(12.9345d);
         Log.d("Meee", "changed");
         location.setLongitude(77.5345d);
@@ -68,8 +74,8 @@ public class GPS_Service extends Service {
             @Override
             public void onLocationChanged(Location location) {
 
-                lat=location.getLatitude();
-                lng=location.getLongitude();
+                lat = location.getLatitude();
+                lng = location.getLongitude();
                 Map<String, Object> user = new HashMap<>();
                 user.put("latitude", String.valueOf(lat));
                 user.put("longitude", String.valueOf(lng));
@@ -81,20 +87,17 @@ public class GPS_Service extends Service {
 
 
                 Intent i = new Intent("location_update");
-                i.putExtra("coordinates",lat+" "+lng);
+                i.putExtra("coordinates", lat + " " + lng);
                 sendBroadcast(i);
 
-                count=count+1;
-                Log.d("meee", "onLocationChanged: "+count);
-                if(count>=2){
-                    Toast.makeText(getApplicationContext(),"You are out of safe zone",Toast.LENGTH_SHORT).show();
-                  sendAlertSMS(lat,lng);
-                }
-
-                else{
+                count = count + 1;
+                Log.d("meee", "onLocationChanged: " + count);
+                if (count >= 2) {
+                    Toast.makeText(getApplicationContext(), "You are out of safe zone", Toast.LENGTH_SHORT).show();
+                    sendAlertSMS(lat, lng);
+                } else {
                     Toast.makeText(getApplicationContext(), "Loading location", Toast.LENGTH_SHORT).show();
                 }
-
 
 
             }
@@ -120,31 +123,32 @@ public class GPS_Service extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         //noinspection MissingPermission
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,60000,2,listener);
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,60000,10,listener);
+
 
 //        final Timer timer = new Timer ();
 //        TimerTask hourlyTask = new TimerTask () {
 //            @Override
 //            public void run () {
-                lat=location.getLatitude();
-                lng=location.getLongitude();
-                Map<String, Object> user = new HashMap<>();
-                user.put("latitude", String.valueOf(lat));
-                user.put("longitude", String.valueOf(lng));
-                Map<String, Object> coordinates = new HashMap<String, Object>();
-                coordinates.put("coordinates", user);
-                db.collection("Patients")
-                        .document(uid)
-                        .update(coordinates);
+        lat = location.getLatitude();
+        lng = location.getLongitude();
+        Map<String, Object> user = new HashMap<>();
+        user.put("latitude", String.valueOf(lat));
+        user.put("longitude", String.valueOf(lng));
+        Map<String, Object> coordinates = new HashMap<String, Object>();
+        coordinates.put("coordinates", user);
+        db.collection("Patients")
+                .document(uid)
+                .update(coordinates);
 //            }
 //        };
 
 // schedule the task to run starting now and then every hour...
-      //  timer.schedule (hourlyTask, 0l, 1000*1*60);
+        //  timer.schedule (hourlyTask, 0l, 1000*1*60);
 
 
-
-     showForegroundNotification("GPS SERVICE IS RUNNING");
+        showForegroundNotification("GPS SERVICE IS RUNNING");
 
         //ALERT IS SHOWN IF PATIENT IS 4m AWAY FROM CURRENT LOCATION(HOME COORDINATES)
 
@@ -154,33 +158,32 @@ public class GPS_Service extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(locationManager != null){
+        if (locationManager != null) {
             //noinspection MissingPermission
             locationManager.removeUpdates(listener);
         }
     }
 
 
-
     private void showForegroundNotification(String contenttext) {
         // Create intent that will bring our app to the front, as if it was tapped in the app
         // launcher
-       // Intent showTaskIntent = new Intent(getApplicationContext(), Gpscoordinates.class);
+        // Intent showTaskIntent = new Intent(getApplicationContext(), Gpscoordinates.class);
         //showTaskIntent.setAction(Intent.ACTION_MAIN);
         //showTaskIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         //showTaskIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         //PendingIntent contentIntent = PendingIntent.getActivity(
-          //      getApplicationContext(),
-            //    0,
-          //      showTaskIntent,
-              //  PendingIntent.FLAG_UPDATE_CURRENT);
+        //      getApplicationContext(),
+        //    0,
+        //      showTaskIntent,
+        //  PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification notification = new Notification.Builder(getApplicationContext())
                 .setContentTitle(getString(R.string.app_name))
                 .setContentText(contenttext)
                 .setPriority(Notification.PRIORITY_MAX)
-               .setSmallIcon(R.drawable.gps_service)
+                .setSmallIcon(R.drawable.gps_service)
                 .setWhen(System.currentTimeMillis())
                 //.setContentIntent(contentIntent)
                 .build();
@@ -188,16 +191,29 @@ public class GPS_Service extends Service {
     }
 
 
-    private void sendAlertSMS(double lat, double lng){
+    private void sendAlertSMS(final double lat, final double lng) {
 
-        String smsTo = "8762557133"; // some phone number here
-        String smsMessage = "Latitude:"+lat+"Longitude"+lng;
-      //  Toast.makeText(getApplicationContext(),Integer.toString(count),Toast.LENGTH_SHORT).show();
-        SmsManager.getDefault().sendTextMessage(smsTo, null,smsMessage , null,null);
+        final DocumentReference docRef = db.collection("Patients").document(uid);
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e);
+                    return;
+                }
+                Map<String, Object> contacts = (Map<String, Object>) snapshot.get("EmergencyContacts");
+                smsTo = (contacts.get("num1").toString());
+
+                String smsMessage = "Latitude:" + lat + "Longitude" + lng;
+                //  Toast.makeText(getApplicationContext(),Integer.toString(count),Toast.LENGTH_SHORT).show();
+                SmsManager.getDefault().sendTextMessage(smsTo, null, smsMessage, null, null);
 //        SmsManager smsMgr = SmsManager.getDefault();
 //        smsMgr.sendTextMessage(smsTo, null, smsMessage, null, null);
 
 
+            }
+        });
     }
 }
 /////////////////
