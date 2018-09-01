@@ -1,0 +1,131 @@
+{
+  "project_info": {
+    "project_number": "506062973569",
+    "firebase_url": "https://forget-me-not-420.firebaseio.com",
+    "project_id": "forget-me-not-420",
+    "storage_bucket": "forget-me-not-420.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506062973569:android:d6d9f65865d34a79",
+        "android_client_info": {
+          "package_name": "com.example.mlabsystem2.dialerfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506062973569-dcpp7q2iq539d23hm2a88k5jin50q8mv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.dialerfinal",
+            "certificate_hash": "ebdbb39a7ea771b0c76435d13787072e87dd1f11"
+          }
+        },
+        {
+          "client_id": "506062973569-pvphpoku0enm17stfb6do4jutil2jg38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.dialerfinal",
+            "certificate_hash": "c523d2730b47d5da4da11210cf5723a38dda3067"
+          }
+        },
+        {
+          "client_id": "506062973569-ncsh49o8lcmbnuufptjnqneg2uhmnrni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.dialerfinal",
+            "certificate_hash": "6cb9b68e829f77bc0b2e5d453ba88e62a000b165"
+          }
+        },
+        {
+          "client_id": "506062973569-io96di4f1frrg0a5t1ad8n109neenecf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgeFQWCITVvwHJupqG42Lt51TvFgZZVvE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506062973569-io96di4f1frrg0a5t1ad8n109neenecf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506062973569:android:b56ad5990e134419",
+        "android_client_info": {
+          "package_name": "com.example.mlabsystem2.setup_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506062973569-n5vecacir3i91eftrdj5f66sh1gp77of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.setup_2",
+            "certificate_hash": "ebdbb39a7ea771b0c76435d13787072e87dd1f11"
+          }
+        },
+        {
+          "client_id": "506062973569-30bhu64dev88tota4fql9hc4niqvq84n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.setup_2",
+            "certificate_hash": "6cb9b68e829f77bc0b2e5d453ba88e62a000b165"
+          }
+        },
+        {
+          "client_id": "506062973569-mq89lh2od42im9n078aa5njp3is7uac8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlabsystem2.setup_2",
+            "certificate_hash": "c523d2730b47d5da4da11210cf5723a38dda3067"
+          }
+        },
+        {
+          "client_id": "506062973569-io96di4f1frrg0a5t1ad8n109neenecf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgeFQWCITVvwHJupqG42Lt51TvFgZZVvE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506062973569-io96di4f1frrg0a5t1ad8n109neenecf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

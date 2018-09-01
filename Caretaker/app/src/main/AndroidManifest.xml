@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mlabsystem2.setup_2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PatientMenu" />
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".EditPatientDetails" />
+        <activity android:name=".PatientProfile" />
+        <activity android:name=".CustomizeMenu" />
+        <activity android:name=".EditContacts" />
+        <activity
+            android:name=".ScheduleMain"
+            android:exported="true" />
+        <activity android:name=".EditInterests" />
+
+        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".AlarmCancel" />
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+        <activity android:name=".MainActivity_aws1" />
+
+        <activity android:name=".patient_add" />
+        <activity android:name=".taskDescription" />
+        <activity android:name=".BarCodeScanner" />
+        <activity android:name=".PatientProfileNew" />
+        <activity android:name=".Quiz"/>
+        <activity android:name=".Questions" />
+        <activity android:name=".q2" />
+        <activity android:name=".q3" />
+        <activity android:name=".q4" />
+        <activity android:name=".q5" />
+        <activity android:name=".q6" />
+        <activity android:name=".q7" />
+        <activity android:name=".q8" />
+        <activity android:name=".q9" />
+        <activity android:name=".end" />
+        <activity android:name=".instr" />
+        <activity android:name=".img"></activity>
+    </application>
+
+</manifest>

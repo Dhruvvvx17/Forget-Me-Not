@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Pop">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="100dp"
+        android:text="You have already called this number within 5minutes or the the length of the number is not correct,
+                  Please confirm and call,
+                  Else click on Back"
+        android:id="@+id/tv"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="260dp"
+        android:id="@+id/tv1"
+        android:textSize="20dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/contactbutton"
+        android:layout_marginTop="320dp"
+        android:text="Call"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/call"/>
+</RelativeLayout>

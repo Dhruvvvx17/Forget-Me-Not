@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">dialerfinal</string>
+    <string name="no_tasks">No Tasks Scheduled</string>
+    <string name="not_authenticated_yet">User not Authenticated yet.</string>
+    <string name="Scan_info">Scan the QR code through your Caretakers App</string>
+    <string-array name="spinnernames">
+        <item>Every minute</item>
+        <item>Every two minutes</item>
+        <item>Every Day</item>
+    </string-array>
+</resources>

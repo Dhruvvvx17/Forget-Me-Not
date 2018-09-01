@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD TASK"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/Addtask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:hint="Enter Task"
+        android:layout_marginTop="20sp"/>
+
+    <EditText
+        android:id="@+id/AddDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:hint="Enter Description"
+        android:layout_marginTop="20sp"/>
+
+    <Button
+        android:id="@+id/setdate"
+        android:text="SET DATE"
+        android:background="@color/colorAccent"
+        android:layout_width="275dp"
+        android:textColor="@color/White"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/settime"
+        android:layout_width="275dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center"
+        android:textColor="@color/White"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="SET TIME" />
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:text="Repeat :"
+        android:layout_marginLeft="25dp"
+        android:id="@+id/repeattext"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_marginTop="20sp">
+
+    </Spinner>
+
+</LinearLayout>
+
+</LinearLayout>

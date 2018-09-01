@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditContacts"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@string/emergency_contacts"
+        app:titleTextColor="@color/White" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/heading"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Emergency Contacts"-->
+        <!--android:textSize="35sp"-->
+        <!--android:padding="2sp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textAlignment="center"-->
+        <!--/>-->
+
+    <RelativeLayout
+        android:id="@+id/RL1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:layout_below="@id/my_toolbar"
+        >
+        <TextView
+            android:id="@+id/Contact1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact 1"
+            android:textSize="25sp"
+            android:padding="5sp"
+            android:background="#D3D3D3"
+            android:textColor="@color/black"
+
+            />
+        <EditText
+            android:id="@+id/Name1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Contact1"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Name"
+            />
+        <EditText
+            android:id="@+id/Phone_number1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Name1"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RL1"
+        android:padding="5sp">
+        <TextView
+            android:id="@+id/Contact2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact 2"
+            android:textSize="25sp"
+            android:padding="5sp"
+            android:textColor="@color/black"
+            android:background="#D3D3D3"
+            />
+        <EditText
+            android:id="@+id/Name2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Contact2"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Name"
+            />
+        <EditText
+            android:id="@+id/Phone_number2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Name2"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RL2"
+        android:padding="5sp">
+        <TextView
+            android:id="@+id/Contact3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact 3"
+            android:textSize="25sp"
+            android:padding="5sp"
+            android:textColor="@color/black"
+            android:background="#D3D3D3"
+            />
+        <EditText
+            android:id="@+id/Name3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Contact3"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Name"
+
+            />
+        <EditText
+            android:id="@+id/Phone_number3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Name3"
+            android:padding="10sp"
+            android:textSize="20sp"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RL3">
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:padding="15sp"
+            android:background="#D3D3D3"
+            android:src="@drawable/ic_edit_black"
+            android:onClick="editContacts"/>
+
+        <ImageButton
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#D3D3D3"
+            android:src="@drawable/ic_check_circle_black"
+            android:onClick="saveContacts"
+            />
+
+
+    </RelativeLayout>
+
+</android.widget.RelativeLayout>

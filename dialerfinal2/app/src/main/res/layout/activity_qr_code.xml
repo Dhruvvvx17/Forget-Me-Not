@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".QRcode"
+    android:padding="10sp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/Scan_info"
+        android:textColor="#8B0000"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_above="@+id/QRcode"
+        android:padding="20sp"/>
+
+    <ImageView
+        android:id="@+id/QRcode"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/skip"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:shadowColor="#808080"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_skip_next_black_24dp"
+        android:onClick="changeActivity"/>
+
+</android.widget.RelativeLayout>

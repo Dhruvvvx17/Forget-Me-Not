@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Games">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/gradientbackground">
+       <android.support.v7.widget.CardView
+           android:layout_width="150dp"
+           android:layout_height="150dp"
+           android:id="@+id/games1"
+
+
+           android:elevation="30dp"
+           android:layout_marginTop="80dp"
+           android:layout_marginLeft="55dp"
+           android:background="@color/white">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               >
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="70dp"
+                   android:layout_marginTop="40dp"
+                   android:text="Game1"
+                   android:textStyle="bold"
+
+                   android:textAlignment="center"
+                   android:textColor="@color/black"
+                   android:textSize="45dp"/>
+           </LinearLayout>></android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/games2"
+
+
+            android:elevation="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="215dp"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Game2"
+                    android:textStyle="bold"
+
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="45dp"/>
+            </LinearLayout>></android.support.v7.widget.CardView>
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="400dp"
+
+        android:background="@color/white">
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+
+            android:layout_height="150dp"
+            android:id="@+id/games3"
+
+
+            android:elevation="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="55dp"
+            android:background="@drawable/gradientbackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/gradientbackground"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Game3"
+                    android:textStyle="bold"
+
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="45dp"/>
+            </LinearLayout>></android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/games4"
+
+
+            android:elevation="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="215dp"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/gradientbackground"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Game4"
+                    android:textStyle="bold"
+
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="45dp"/>
+            </LinearLayout>></android.support.v7.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>
