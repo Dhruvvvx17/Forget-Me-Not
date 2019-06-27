@@ -1,8 +1,0 @@
-Accessing SD card(facial recognition)
-Camera(facial recognition + qr scanner)
-SMS/calls(repeated calling feature)
-Using internet API calls (news feed+ aws)
-Remote database call (firebase + aws)
-Notifications (schedule feature)
-WiFi connectivity ( news feed+ aws+firebase )
-Machine learning (aws)
